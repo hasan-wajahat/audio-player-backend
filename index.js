@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const songs = require('./routes/songs');
 
 const app = express();
+// local mongoose server, with no authentication currently.
 mongoose.connect('mongodb://localhost/audio_player_backend');
 
 // middleware /////
