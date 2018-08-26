@@ -1,18 +1,11 @@
 const express = require('express');
-const songs = require('./songs.json');
+const api = require('./routes');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello Worlds');
-});
-
-app.get('/api/songs', (req, res) => {
-  res.send({
-    data: songs,
-    success: true,
-  });
-});
+// middleware /////
+app.use('/api', api);
+app.use('/static', express.static(`${__dirname}/public`));
 
 const port = process.env.PORT || 3000;
 

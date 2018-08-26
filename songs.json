@@ -1,9 +1,11 @@
 [{
+    "id": 1,
     "name": "Coming Home",
-    "url": "./song"
+    "url": "/static/coming_home.mp3"
   },
   {
-    "name": "Tiest That Bind",
-    "url": "./song"
+    "id": 2,
+    "name": "Ties That Bind",
+    "url": "/static/ties_that_bind.mp3"
   }
 ]
