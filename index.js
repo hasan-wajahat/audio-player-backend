@@ -5,19 +5,10 @@ const songs = require('./routes/songs');
 const app = express();
 const dbUrl = process.env.DB_URL;
 
-connectToDB = () => {
-  mongoose
-    .connect(dbUrl)
-    .then(() => console.log("Database connected"))
-    .catch(error => {
-      console.error("Database error:", error);
-      setTimeout(() => {
-        connectToDB();
-      }, 1000);
-    });
-}
-
-connectToDB();
+mongoose
+  .connect(dbUrl)
+  .then(() => console.log("Database connected"))
+  .catch(error => console.error("Database error:", error));
 
 // middleware /////
 app.use('/api/', songs);
