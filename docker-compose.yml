@@ -5,6 +5,9 @@ services:
     restart: always
     env_file: .env.docker
     build: .
+    volumes:
+      - .:/src
+      - /src/node_modules
     ports: 
       - "3000:3000"
     links:
@@ -12,6 +15,6 @@ services:
   mongo:
     image: mongo
     volumes: 
-      - ./data:/data/db
+      - ./db-data:/data/db
     ports:
       - "27017:27017"

@@ -8,7 +8,7 @@ const dbUrl = process.env.DB_URL;
 connectToDB = () => {
   mongoose
     .connect(dbUrl)
-    .then(() => console.log("Database connecteds"))
+    .then(() => console.log("Database connected"))
     .catch(error => {
       console.error("Database error:", error);
       setTimeout(() => {
@@ -17,7 +17,7 @@ connectToDB = () => {
     });
 }
 
-// connectToDB();
+connectToDB();
 
 // middleware /////
 app.use('/api/', songs);
