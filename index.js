@@ -3,8 +3,21 @@ const mongoose = require('mongoose');
 const songs = require('./routes/songs');
 
 const app = express();
-// local mongoose server, with no authentication currently.
-mongoose.connect('mongodb://localhost/audio_player_backend');
+const dbUrl = process.env.DB_URL;
+
+connectToDB = () => {
+  mongoose
+    .connect(dbUrl)
+    .then(() => console.log("Database connecteds"))
+    .catch(error => {
+      console.error("Database error:", error);
+      setTimeout(() => {
+        connectToDB();
+      }, 1000);
+    });
+}
+
+// connectToDB();
 
 // middleware /////
 app.use('/api/', songs);
