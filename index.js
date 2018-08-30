@@ -1,14 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const songs = require('./routes/songs');
 
-const app = express();
-const dbUrl = process.env.DB_URL;
+// loads db and data
+require('./db');
 
-mongoose
-  .connect(dbUrl)
-  .then(() => console.log("Database connected"))
-  .catch(error => console.error("Database error:", error));
+const app = express();
 
 // middleware /////
 app.use('/api/', songs);
