@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const songSchema = mongoose.Schema({
   id: Number,
   name: String,
   url: String,
 });
-const Song = mongoose.model('Song', songSchema);
 
-module.exports = Song;
+export default mongoose.model('Song', songSchema);

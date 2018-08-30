@@ -1,13 +1,13 @@
-const express = require('express');
-const songs = require('./routes/songs');
+import express from 'express';
+import songsRouter from './routes/songs';
 
 // loads db and data
-require('./db');
+import './db';
 
 const app = express();
 
 // middleware /////
-app.use('/api/', songs);
+app.use('/api/', songsRouter);
 app.use('/static', express.static(`${__dirname}/public`));
 
 const port = process.env.PORT || 3000;
