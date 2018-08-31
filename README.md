@@ -4,7 +4,7 @@ A song API service, build in Express and MongoDB.
 The whole app is Dockerized for ease of use.
 
 ## To Start App 
-Head to project root directly  and run:
+Head to project root directly add `.env` file and run:
 ```
 docker-compose up
 ```
@@ -26,7 +26,7 @@ An example for that can be found in **.env.example**.
 `/api/songs/:id`| Gets a single song | GET
 
 ## DB Details
-We are using **MongoDB** for our data management. The Orm being used is **Mongoose**. To set the DB of own choice use the `DB_URL` field in `.env` file.
+We are using **MongoDB** for our data management. The Orm being used is **Mongoose**. To set the DB url use the `DB_URL` field in `.env` file.
 Currently data is not persisted and fresh entries are loaded using `songs.json`.
 
 ## Highlights
