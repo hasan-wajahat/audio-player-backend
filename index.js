@@ -1,8 +1,9 @@
 import express from 'express';
 import songsRouter from './routes/songs';
+import {connectToDB} from './db'
 
 // loads db and data
-import './db';
+connectToDB();
 
 const app = express();
 

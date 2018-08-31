@@ -9,7 +9,7 @@ import Song from '../models/songs';
 const songs = require('./songs.json');
 
 // get DB-URL from environment
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL || 'audio-player';
 
 const loadModelData = async () => {
   console.log('Database Connected');
@@ -20,7 +20,13 @@ const loadModelData = async () => {
 };
 
 // connect to DB
-mongoose
+const connectToDB = () => { 
+  mongoose
   .connect(dbUrl)
   .then(() => loadModelData())
   .catch(error => console.error('Database error:', error));
+}
+
+export {
+  connectToDB
+};

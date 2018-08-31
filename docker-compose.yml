@@ -3,7 +3,7 @@ services:
   app: 
     container_name: audio-player-backend
     restart: always
-    env_file: .env.docker
+    env_file: .env
     build: .
     volumes:
       - .:/src
