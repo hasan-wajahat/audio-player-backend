@@ -1,25 +1,42 @@
-# audio-player-backend
-This for the test project for Aula.
-This api provides a list of songs and their url for the front-end to consume.
 
-### to start app 
-```
-npm start
-# This will start the app at port 3000 by default.
-# To change the port set the env variable PORT.
-```
+# Audio Player Backend Service
+A song API service, build in Express and MongoDB.
+The whole app is Dockerized for ease of use.
 
-### DB
+### To Start App 
+Head to project root directly  and run:
 ```
-The backend is set in mongoose, however instructions for that is not 
-part of this app. An example of the payload can be found in the songs.json
-file. The current DB system is security risk but it serves as more of an 
-proof of concept than a real app.
+docker-compose up
 ```
+This will do the following:
+- Clone **Node-9** and **MongoDb**.
+- Install all required npm packages.
+- Transpile code using **Babel**.
+- Watch code using **nodemon**.
+- Starts server at 3000 port by default, can be configured.
 
-### routes
-```
-/api/songs
-/api/songs/:id
-```
+### Environment Details
+A **.env** must be created for DB usage and future AWS usage.
+An example for that can be found in **.env.example**.
 
+### Routes
+|*Route* | *Details* | *Method* |
+--- | --- | --- |
+`/api/songs` | Gets list of all songs | GET
+`/api/songs/:id`| Gets a single song | GET
+
+### DB Details
+We are using **MongoDB** for our data management. The Orm being used is **Mongoose**. To set the DB of own choice use the `DB_URL` field in `.env` file.
+Currently data is not persisted and fresh entries are loaded using `songs.json`.
+
+### Highlights
+- Whole App completely Dockerized.
+- Proper backend service created instead of using static json files.
+- Babel added to project to add the ability to use features such ES6 `import`.
+- Files are hosted at AWS and loaded directly from there.
+
+### Missing Stuff & Possible Improvements
+- Lacks JWT authentication.
+- No logic added to add or delete songs.
+- Folder structure could be improved.
+- Though AWS can be used in the app and basic infrastructure was added but currently it's not being utilized due to little need.
