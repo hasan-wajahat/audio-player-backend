@@ -12,7 +12,7 @@ router.get('/songs', async (req, res) => {
     const songs = await Song.find();
     res.send(songs);
   } catch (err) {
-    res.send(err);
+    res.status(500).send(err.message)
   }
 });
 
@@ -23,13 +23,18 @@ router.get('/songs', async (req, res) => {
  */
 router.get('/songs/:id', async (req, res) => {
   const { params: { id } } = req;
-  const song = await Song.findOne({ id });
-  if (!song) {
-    // if song does not exist return message
-    res.status(404).send('Song not available for given ID');
-  } else {
-    // if song exists, then send song details
-    res.send(song);
+  try {
+    const song = await Song.findOne({ id });
+    if (!song) {
+      // if song does not exist return message
+      res.status(404).send('Song not available for given ID');
+    } else {
+      // if song exists, then send song details
+      res.send(song);
+    }
+  } catch (err) {
+    // throw error if problem in resolving request
+    res.status(500).send(err.message)
   }
 });
 
