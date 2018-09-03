@@ -16,8 +16,10 @@ This will do the following:
 - Starts server at 3000 port by default, can be configured.
 
 ## Environment Details
-A **.env** must be created for DB usage and future AWS usage.
+A **.env** must be used for custom DB location and future AWS usage.
+By default *mongodb://mongo:27017/audio-player* will be used.
 An example for that can be found in **.env.example**.
+If defaults are to be used then just create an empty **.env** file.
 
 ## Routes
 |*Route* | *Details* | *Method* |
@@ -38,5 +40,4 @@ Currently data is not persisted and fresh entries are loaded using `songs.json`.
 ## Missing Stuff & Possible Improvements
 - Lacks JWT authentication.
 - No logic added to add or delete songs.
-- Folder structure could be improved.
 - Though AWS can be used in the app and basic infrastructure was added but currently it's not being utilized due to little need.

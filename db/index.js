@@ -3,7 +3,7 @@
  * loading fixture data
  */
 import mongoose from 'mongoose';
-import Song from '../models/songs';
+import Song from '../src/models/songs';
 
 // loads songs from json file
 const songs = require('./songs.json');

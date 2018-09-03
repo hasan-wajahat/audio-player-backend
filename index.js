@@ -1,5 +1,5 @@
 import express from 'express';
-import songsRouter from './routes/songs';
+import songsRouter from './src/routes/songs';
 import { connectToDB } from './db';
 
 const app = express();
