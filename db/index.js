@@ -9,7 +9,7 @@ import Song from '../models/songs';
 const songs = require('./songs.json');
 
 // get DB-URL from environment
-const dbUrl = process.env.DB_URL || 'audio-player';
+const dbUrl = process.env.DB_URL || 'mongodb://mongo:27017/audio-player';
 
 const loadModelData = async () => {
   console.log('Database Connected');
